@@ -18,7 +18,7 @@ export default function Home() {
             } catch(err) {
                 console.warn(err)
                 if (err.response) {
-                    setErrorMessage(err.response.message)
+                    setErrorMessage(err.response.data.message)
                 }
             }
         }
@@ -40,8 +40,11 @@ export default function Home() {
             <h1>Welcome to the Bounty App! 🔫</h1>
 
             <h2>Most Recent Bounties:</h2>
+
             {bountyLinks}
             {/* most reccent TODO: sort by date */}
+
+            <p>{errorMessage}</p>
         </div>
     )
 }
