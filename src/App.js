@@ -19,6 +19,22 @@ function App() {
             path='/'
             element={<Home />}
           />
+          <Route
+            path='/bounties'
+            element={<Bounties />}
+          />
+          <Route
+            path='/bounties/new'
+            element={<NewBounty />}
+          />
+          <Route
+            path='/bounties/:id'
+            element={<Bounty />}
+          />
+          <Route
+            path='/bounties/:id/edit'
+            element={<EditBounty />}
+          />
         </Routes>
       </Router>
     </div>
