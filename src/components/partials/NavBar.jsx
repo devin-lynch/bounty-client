@@ -5,7 +5,7 @@ export default function Navbar() {
         <nav>
             <ul style={{ listStyleType: 'none' }}>
                 <li>
-                    <Link to='/home'>Home</Link>
+                    <Link to='/'>Home</Link>
                 </li>
                 <li>
                     <Link to='/bounties'>All Bounties</Link>    
