@@ -5,6 +5,7 @@ import axios from 'axios'
 export default function Bounty() {
     const [bounty, setBounty] = useState({})
     const [errorMessage, setErrorMessage] = useState('')
+
     const { id } = useParams()
     const nagivate = useNavigate()
 
