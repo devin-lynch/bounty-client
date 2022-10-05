@@ -14,6 +14,7 @@ export default function Home() {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/bounty`)
                 // console.log(response.data)
+                // TODO: sort by date and only show the most recent bounties
                 setBounties(response.data)
             } catch(err) {
                 console.warn(err)

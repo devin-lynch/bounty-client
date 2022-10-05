@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -6,6 +6,7 @@ export default function Bounty() {
     const [bounty, setBounty] = useState({})
     const [errorMessage, setErrorMessage] = useState('')
     const { id } = useParams()
+    const nagivate = useNavigate()
 
     useEffect(() => {
         const getBounty = async () => {
@@ -23,6 +24,20 @@ export default function Bounty() {
         getBounty()
     }, [])
 
+    const handleDelete = async () => {
+        try {
+            // axios to the backend to delete this bounty
+            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/bounty/${id}`)
+            // after deletion, navigate back to /bounties
+            nagivate('/bounties')
+        } catch(err) {
+            console.warn(err)
+            if (err.response) {
+                setErrorMessage(err.response.data.message)            
+        }
+    }
+}
+
     return (
         <div>
             <h1>Bounty Details</h1>
@@ -32,7 +47,7 @@ export default function Bounty() {
             <div>
                 <Link to={`/bounties/${id}/edit`}>Edit this Bounty</Link>
 
-                <button>Delete</button>
+                <button onClick={handleDelete}>Delete</button>
             </div>
 
             <div>
