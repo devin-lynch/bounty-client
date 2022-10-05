@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -28,6 +28,12 @@ export default function Bounty() {
             <h1>Bounty Details</h1>
 
             <p>{errorMessage}</p>
+
+            <div>
+                <Link to={`/bounties/${id}/edit`}>Edit this Bounty</Link>
+
+                <button>Delete</button>
+            </div>
 
             <div>
                 <h2>{bounty.name}</h2>
