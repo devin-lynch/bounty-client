@@ -45,7 +45,7 @@ export default function Bounty() {
             <p>{errorMessage}</p>
 
             <div>
-                <Link to={`/bounties/${id}/edit`}>Edit this Bounty</Link>
+                <Link to={`/bounties/${id}/edit`}><button>Edit</button></Link>
 
                 <button onClick={handleDelete}>Delete</button>
             </div>
